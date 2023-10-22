@@ -54,4 +54,8 @@ public class CarRepository {
             return it;
         });
     }
+
+    public List<Car> getAll() {
+        return carList;
+    }
 }

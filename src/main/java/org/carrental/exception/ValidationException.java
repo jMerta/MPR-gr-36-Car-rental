@@ -16,6 +16,7 @@ public class ValidationException extends RuntimeException {
 
     @Override
     public String getMessage() {
-        return message;
+        return field + " " + message;
     }
+
 }
