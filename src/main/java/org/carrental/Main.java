@@ -23,5 +23,13 @@ public class Main {
 
         System.out.println(availableCars);
 
+
+        // Kolejne kroki:
+        // 1. Obsługa pozostałych metod z CarRepository
+        // 2. Utworzenie modelu, repozytorium i serwisu dla klienta
+        // 3. Dodanie lomboka
+        // 4. Dodanie logów
+        // Kolejny zjazd:
+        // Dodanie modelu rezerwacji, dodanie testów jednostkowych
     }
 }
