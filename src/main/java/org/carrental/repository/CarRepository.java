@@ -13,6 +13,7 @@ public class CarRepository {
     private List<Car> carList = new ArrayList<>();
 
     public Car create(Car car) {
+        car.setId(carList.size());
         carList.add(car);
         return car;
     }
