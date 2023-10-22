@@ -31,4 +31,26 @@ public class CarRepository {
                 .collect(Collectors.toList());
     }
 
+    public void removeById(Integer id){
+        Optional<Car> car = getById(id);
+
+        car.ifPresent(it -> carList.remove(it));
+    }
+
+    public void removeAll(){
+        carList = new ArrayList<>();
+    }
+
+    public Optional<Car> modify(Car car) {
+        Optional<Car> carToModify = getById(car.getId());
+
+        return carToModify.map(it -> {
+            it.setMake(car.getMake());
+            it.setCarClass(car.getCarClass());
+            it.setModel(car.getModel());
+            it.setCarStatus(car.getCarStatus());
+            it.setVin(car.getVin());
+            return it;
+        });
+    }
 }
