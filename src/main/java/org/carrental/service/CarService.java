@@ -17,13 +17,13 @@ public class CarService {
     }
 
     public Car create(Car car) {
-        if (car.getMake().isBlank()){
+        if (car.getMake() == null || car.getMake().isBlank()){
             throw new ValidationException("make", "Cannot be blank");
         }
-        if (car.getModel().isBlank()){
+        if (car.getModel() == null || car.getModel().isBlank()){
             throw new ValidationException("model", "Cannot be blank");
         }
-        if (car.getVin().isBlank()) {
+        if (car.getVin() == null || car.getVin().isBlank()) {
             throw new ValidationException("vin", "cannot be blank");
         }
         if (car.getVin().length() != 3){
