@@ -12,5 +12,6 @@ public class Car {
     private String vin;
     private CarClass carClass;
     private CarStatus carStatus;
+    private Double price;
 
 }

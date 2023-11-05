@@ -37,7 +37,7 @@ class CarServiceTest {
     @Test
     void shouldCorrectlyCreateNewCar(){
         Car car = new Car(
-                null, "Volkswagen", "Golf", "123", CarClass.STANDARD, CarStatus.AVAILABLE
+                null, "Volkswagen", "Golf", "123", CarClass.STANDARD, CarStatus.AVAILABLE, 50D
         );
 
         Car result = assertDoesNotThrow(()->carService.create(car));
@@ -55,7 +55,7 @@ class CarServiceTest {
     @Test
     void shouldNotCreateNewCar() {
         Car car = new Car(
-                null, "Volkswagen", "Golf", "1234", CarClass.STANDARD, CarStatus.AVAILABLE
+                null, "Volkswagen", "Golf", "1234", CarClass.STANDARD, CarStatus.AVAILABLE, 50D
         );
 
         ValidationException result = assertThrows(ValidationException.class,()->carService.create(car));
@@ -79,10 +79,10 @@ class CarServiceTest {
     @Test
     void shouldCorrectlyReturnCar(){
         Car car = new Car(
-                null, "Volkswagen", "Golf", "123", CarClass.STANDARD, CarStatus.AVAILABLE
+                null, "Volkswagen", "Golf", "123", CarClass.STANDARD, CarStatus.AVAILABLE, 100D
         );
         Car car2 = new Car(
-                null, "Volkswagen", "Golf", "321", CarClass.STANDARD, CarStatus.AVAILABLE
+                null, "Volkswagen", "Golf", "321", CarClass.STANDARD, CarStatus.AVAILABLE, 80D
         );
 
         carService.create(car);
@@ -96,11 +96,11 @@ class CarServiceTest {
 
     public static Stream<Arguments> provideInvalidCarsAndMessages() {
         return Stream.of(
-                Arguments.of(new Car(null, "Volkswagen", "Golf", "1234", CarClass.STANDARD, CarStatus.AVAILABLE)
+                Arguments.of(new Car(null, "Volkswagen", "Golf", "1234", CarClass.STANDARD, CarStatus.AVAILABLE, 100D)
                         , "vin length must be 3"),
-                Arguments.of(new Car(null, "", "Golf", "123", CarClass.STANDARD, CarStatus.AVAILABLE)
+                Arguments.of(new Car(null, "", "Golf", "123", CarClass.STANDARD, CarStatus.AVAILABLE, 50D)
                         , "make Cannot be blank"),
-                Arguments.of(new Car(null, null, "Golf", "123", CarClass.STANDARD, CarStatus.AVAILABLE)
+                Arguments.of(new Car(null, null, "Golf", "123", CarClass.STANDARD, CarStatus.AVAILABLE, 50D)
                         , "make Cannot be blank")
         );
     }
