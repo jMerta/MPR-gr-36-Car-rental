@@ -2,11 +2,13 @@ package org.carrental.repository;
 
 import org.carrental.model.car.Car;
 import org.carrental.model.rent.Rent;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class RentRepository {
 
     private List<Rent> rentList = new ArrayList<>();

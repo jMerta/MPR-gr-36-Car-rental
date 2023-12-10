@@ -1,20 +1,20 @@
 package org.carrental.service;
 
+import lombok.RequiredArgsConstructor;
 import org.carrental.exception.CarNotFoundException;
 import org.carrental.exception.ValidationException;
 import org.carrental.model.car.Car;
 import org.carrental.model.car.CarStatus;
 import org.carrental.repository.CarRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class CarService {
-
     private final CarRepository carRepository;
 
-    public CarService(CarRepository carRepository) {
-        this.carRepository = carRepository;
-    }
 
     public Car create(Car car) {
         if (car.getMake() == null || car.getMake().isBlank()){
